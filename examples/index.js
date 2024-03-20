@@ -116,15 +116,23 @@ let myInvoice = new MicroInvoice({
         }, {
           label : "Total paid with VAT",
           value : "51.6",
-          price : true
-        }]
+          price : true,
+          highlight : true,
+        }],
+
+        button : {
+            label : "Pay Bill",
+            value : "https://docs.stripe.com/issuing/how-issuing-works",
+            bgColor : 'yellow',
+            textColor : 'red',
+        }
       }
     }
   }
 });
 
 // Render invoice as PDF
-myInvoice.generate("example.pdf").then(() => {
+myInvoice.generate("./examples/example.pdf").then(() => {
   console.log("Invoice saved");
 }).catch((error) => {
   console.error(error);
